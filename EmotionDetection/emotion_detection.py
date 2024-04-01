@@ -36,6 +36,17 @@ def emotion_detector(text_to_analyse):
         }
 
         return result
+
+        #Error handling status code 400
+    elif response.status_code == 400:
+        return {
+            'anger': None,
+            'disgust': None,
+            'fear': None,
+            'joy': None,
+            'sadness': None,
+            'dominant_emotion': None
+        }
+    # Handle the error condition (e.g., by raising an exception or returning a default value)
     else:
-        # Handle the error condition (e.g., by raising an exception or returning a default value)
         return {'error': f"Error occurred: HTTP status code {response.status_code}"}
